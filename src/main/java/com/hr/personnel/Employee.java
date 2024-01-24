@@ -1,8 +1,11 @@
 package com.hr.personnel;
 
+import gov.irs.TaxPayer;
+
 import java.time.LocalDate;
 
-public class Employee {
+public abstract class Employee implements TaxPayer {
+
     private String name;
     private LocalDate hireDate;
 
@@ -11,11 +14,22 @@ public class Employee {
         this.hireDate = hireDate;
     }
 
-    public String getEmployeeInfo() {
-        return "name = " + name + ", hireDate = " + hireDate;
-    }
+    public abstract String getEmployeeInfo();
+    public abstract double computeMonthlyCompensation();
 
     public String work() {
         return name + " worked";
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public LocalDate getHireDate() {
+        return hireDate;
+    }
+    public void setHireDate(LocalDate hireDate) {
+        this.hireDate = hireDate;
     }
 }
